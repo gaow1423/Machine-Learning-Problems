@@ -1,0 +1,4 @@
+1. Implement Principal Component Analysis for dimension reduc- tion. Specifically, your program needs to compute the mean and covari- ance matrix of the data, and use a off-the-shelf numerical package of your choice to compute the top ten eigen-vectors with ten largest eigen-values of the Covariance matrix. Report the eigen values in decreasing order.
+2. Plot the mean image, and each of the top ten eigen vectors using matlab function imshow(reshape(x, 28,28)’) (or other comparable func- tions in other languages). To make the image for eigen vectors viewable, you should re-scale each eigenvector by its maximum value. Inspect the resulting images, what do you think they capture?
+3. Use the top 10 eigenvectors to project each image to 10 dimen- sions. Identify for each dimension the image that has the largest value in that dimension and plot it using imshow. Compare the image with its corresponding eigen-vector imagem, what do you observe?
+
