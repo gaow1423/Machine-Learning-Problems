@@ -10,14 +10,15 @@ def norm(a):
 if __name__ == '__main__':
     data = np.genfromtxt('data-1.txt',
                          delimiter=",")
+    print(data.shape)
     w, v = la.eigh(np.cov(data.T))
     
     #Make a list of (eigenvalue, eigenvector) tuples
     eig_pairs = [(np.abs(w[i]), v[:, i]) for i in range(len(w))]
-
+    
     #Sort the (eigenvalue, eigenvector) tuples from high to low
     eig_pairs.sort(key=lambda x: x[0], reverse=True)
-
+    print(eig_pairs[0][0])
 
     '''
     352868.691256
@@ -38,12 +39,11 @@ if __name__ == '__main__':
     pic = norm(np.array([eig_pairs[0][1]]).reshape(28, 28))
     for i in range(0, 4):
         pic = np.hstack((pic, norm(np.array([eig_pairs[i+1][1]])).reshape(28, 28)))
-    
     pic_2 = norm(np.array([eig_pairs[5][1]]).reshape(28, 28))
     for i in range(0, 4):
         pic_2 = np.hstack((pic_2, norm(np.array([eig_pairs[i+6][1]])).reshape(28, 28)))
     eig_pic = np.array(np.vstack((pic, pic_2)), dtype = float)
-#    print(eig_pic.shape)
+    print(eig_pairs[0][1].shape)
 
     plt.subplot(2, 2, 1)
     plt.imshow(mean.reshape(28,28), cmap=plt.get_cmap('gray'))
@@ -85,6 +85,6 @@ if __name__ == '__main__':
 
 #    print(transformed.T.shape)
 
-    plt.legend()
-    plt.show()
+#    plt.legend()
+#    plt.show()
 
